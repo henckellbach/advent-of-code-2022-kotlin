@@ -1,6 +1,6 @@
-object Day01: IDay {
+object Day01 : IDay {
     private val input = Resource.parseAsString("1.txt")
-    private val totals = input.split("\n\n").map{
+    private val totals = input.split("\n\n").map {
         it.lines().sumOf { line -> line.toInt() }
     }
 

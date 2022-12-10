@@ -1,4 +1,4 @@
-object Day02: IDay {
+object Day02 : IDay {
     enum class Sign(val score: Int) {
         ROCK(1), PAPER(2), SCISSORS(3)
     }

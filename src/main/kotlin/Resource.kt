@@ -14,6 +14,6 @@ internal object Resource {
     }
 
     fun parseAsIntList(filename: String): List<Int?> {
-        return parseAsStringList(filename).map{ it.toInt() }
+        return parseAsStringList(filename).map { it.toInt() }
     }
 }

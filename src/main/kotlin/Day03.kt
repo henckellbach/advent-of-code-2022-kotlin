@@ -1,4 +1,4 @@
-object Day03: IDay {
+object Day03 : IDay {
     private val input = Resource.parseAsStringList("3.txt")
 
     private fun String.halve(): Pair<String, String> {
@@ -25,7 +25,7 @@ object Day03: IDay {
 
     override fun solvePart1(): Int {
         val values = input.map { line ->
-            val (first,second) = line.halve()
+            val (first, second) = line.halve()
             val duplicates = first.toCharArray().distinct().filter { char -> second.contains(char) }
             duplicates.sumOf { duplicate -> getCharValue(duplicate) }
         }
@@ -35,8 +35,9 @@ object Day03: IDay {
 
     override fun solvePart2(): Int {
         val chunks = input.chunked(3)
-        val values = chunks.map{ chunk ->
-            val duplicate = chunk[0].toCharArray().distinct().find { char -> chunk[1].contains(char) && chunk[2].contains(char) }
+        val values = chunks.map { chunk ->
+            val duplicate =
+                chunk[0].toCharArray().distinct().find { char -> chunk[1].contains(char) && chunk[2].contains(char) }
             if (duplicate != null) getCharValue(duplicate) else 0
         }
 
