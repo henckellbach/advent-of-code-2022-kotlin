@@ -1,4 +1,4 @@
-object Day02 {
+object Day02: IDay {
     enum class Sign(val score: Int) {
         ROCK(1), PAPER(2), SCISSORS(3)
     }
@@ -25,14 +25,14 @@ object Day02 {
         return stateScore + playerSign.score
     }
 
-    fun solvePart1(): Int {
+    override fun solvePart1(): Int {
         val games = input.map { it.split(" ").map { str -> mapInputToSign(str.first()) } }
         val scores = games.map { getScore(it[0], it[1]) }
 
         return scores.sum()
     }
 
-    fun solvePart2(): Int {
+    override fun solvePart2(): Int {
         val scores = input.map {
             val (opponentChar, resultChar) = it.split(" ").map { str -> str.first() }
             val opponentSign = mapInputToSign(opponentChar)
