@@ -1,4 +1,4 @@
-object Day04: IDay {
+object Day04 : IDay {
     private val input = Resource.parseAsStringList("4.txt")
     private val rangeLists = input.map { it.split(',').map { str -> str.toRange() } }
 
@@ -7,7 +7,7 @@ object Day04: IDay {
     }
 
     private fun String.toRange(delimiter: Char = '-'): IntRange {
-        val (first,last) = this.split(delimiter).map{it.toInt()}
+        val (first, last) = this.split(delimiter).map { it.toInt() }
         return first..last
     }
 
@@ -18,7 +18,7 @@ object Day04: IDay {
     }
 
     override fun solvePart2(): Any {
-        return rangeLists.count { (range1,range2) ->
+        return rangeLists.count { (range1, range2) ->
             range1.intersect(range2).isNotEmpty() || range2.intersect(range1).isNotEmpty()
         }
     }
